@@ -15,30 +15,3 @@ class Subject {
     this.observers.forEach(observer => observer.update(data));
   }
 }
-
-class Observer {
-  constructor(name) {
-    this.name = name;
-  }
-
-  update(data) {
-    console.log(`${this.name} received data: ${data}`);
-  }
-}
-
-// Usage
-const subject = new Subject();
-
-const observer1 = new Observer('Observer 1');
-const observer2 = new Observer('Observer 2');
-const observer3 = new Observer('Observer 3');
-
-subject.subscribe(observer1);
-subject.subscribe(observer2);
-subject.subscribe(observer3);
-
-subject.notify('Hello, Observers!');
-
-subject.unsubscribe(observer2);
-
-subject.notify('Hello, Observers after unsubscribe!');
